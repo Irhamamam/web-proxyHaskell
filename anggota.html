@@ -1,0 +1,2191 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proxy Haskell - Anggota</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans, Space Grotesk, Orbitron & Chakra Petch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700;800&family=Orbitron:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Styles & Scripts -->
+    <link rel="stylesheet" href="./assets/fonts-C9MNnjVw.css">
+    <link rel="stylesheet" href="./assets/app-C4x9XZvv.css">
+    <script type="module" src="./assets/app-BvRk9kiK.js"></script>
+    <style>
+    [x-cloak] {
+        display: none !important;
+    }
+
+    /* Tipografi Outline Transparan Sesuai Referensi Gambar */
+    .text-outline-haskell {
+        -webkit-text-stroke: 1.5px #e0d3ac;
+        color: transparent;
+        letter-spacing: 0.12em;
+    }
+    @media (min-width: 640px) {
+        .text-outline-haskell {
+            -webkit-text-stroke: 2px #e0d3ac;
+        }
+    }
+
+    /* Animasi Fade In Berdurasi 0.5 Detik untuk Card & Komponen */
+    @keyframes fadeIn500 {
+        0% {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .fade-in-item {
+        animation: fadeIn500 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .fade-in-item {
+            animation: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    }
+</style>
+</head>
+<body class="bg-[#1E152A] text-[#e0d3ac] min-h-screen flex flex-col font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#e0d3ac] selection:text-[#1E152A] antialiased overflow-x-hidden">
+
+    <!-- Navbar Transparan dengan Garis Pembatas Bawah Sesuai Gambar -->
+    <header class="w-full absolute top-0 left-0 z-50 bg-transparent border-b border-[#e0d3ac]/70">
+        <nav class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-4 sm:py-5 flex items-center justify-between">
+            
+            <!-- Logo / Brand (Kiri) -->
+                            <a href="index.html" class="text-base sm:text-lg md:text-xl lg:text-2xl font-['Mokoto',sans-serif] tracking-wider text-[#e0d3ac] hover:text-white transition-colors duration-200 select-none">
+                    PROXY HASKELL
+                </a>
+            
+            <!-- Menu Navigasi (Kanan) -->
+            <ul class="flex items-center space-x-3 sm:space-x-6 text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wider font-['Chakra_Petch','Plus_Jakarta_Sans',sans-serif]">
+                
+                
+                <li>
+                    <a 
+                        href="index.html" 
+                        class="relative py-1 transition-all duration-300 text-[#e0d3ac]/85 hover:text-white hover:drop-shadow-[0_0_12px_rgba(224,211,172,0.6)] group"
+                    >
+                        <span>HOME</span>
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#e0d3ac] transition-all duration-300 group-hover:w-full "></span>
+                    </a>
+                </li>
+
+                
+                <li class="text-[#e0d3ac]/70 select-none font-bold text-xs sm:text-sm">/</li>
+
+                
+                <li>
+                    <a 
+                        href="galeri.html" 
+                        class="relative py-1 transition-all duration-300 text-[#e0d3ac]/85 hover:text-white hover:drop-shadow-[0_0_12px_rgba(224,211,172,0.6)] group"
+                    >
+                        <span>GALERI</span>
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#e0d3ac] transition-all duration-300 group-hover:w-full "></span>
+                    </a>
+                </li>
+
+                
+                <li class="text-[#e0d3ac]/70 select-none font-bold text-xs sm:text-sm">/</li>
+
+                
+                <li>
+                    <a 
+                        href="anggota.html" 
+                        class="relative py-1 transition-all duration-300 text-[#e0d3ac] hover:text-white hover:drop-shadow-[0_0_12px_rgba(224,211,172,0.6)] group"
+                    >
+                        <span>ANGGOTA</span>
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#e0d3ac] transition-all duration-300 group-hover:w-full w-full"></span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+    </header>
+
+    <!-- Tempat Konten Halaman -->
+    <main class="flex-1 w-full relative z-10 pt-20 sm:pt-24">
+        
+
+<div 
+    x-data="{ currentSlide: 1, totalSlides: 3 }"
+    @keydown.window.arrow-right="if (currentSlide < totalSlides) currentSlide++"
+    @keydown.window.arrow-left="if (currentSlide > 1) currentSlide--"
+    class="relative w-full min-h-screen bg-cover bg-center bg-no-repeat -mt-20 sm:-mt-24 pt-24 sm:pt-28 pb-16 flex flex-col justify-between overflow-x-hidden"
+    style="background-image: url('./images/anggota-background.jpg');"
+>
+
+    
+    <div class="max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-16 mb-6 sm:mb-8">
+        
+        
+        <div class="flex items-center">
+            
+            
+            <div class="flex items-center gap-1.5 opacity-60 mr-3 sm:mr-4 shrink-0 select-none">
+                <div class="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 bg-[#e0d3ac]/40"></div>
+                <div class="w-4 h-4 sm:w-5 sm:h-5 bg-[#e0d3ac]/70"></div>
+            </div>
+
+            
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black uppercase text-outline-haskell font-['Mokoto',sans-serif] tracking-wider leading-none select-none">
+                ANGGOTA PROXY
+            </h1>
+
+        </div>
+
+        
+        <div class="mt-2 sm:mt-2.5 text-base sm:text-lg md:text-xl font-bold tracking-[0.2em] text-[#e0d3ac] font-['Mokoto','Space_Grotesk',sans-serif] select-none pl-7 sm:pl-9 h-7 flex items-center">
+            <template x-for="slide in [currentSlide]" :key="slide">
+                <span class="inline-block fade-in-item" x-text="'0' + slide + '-0' + totalSlides">01-03</span>
+            </template>
+        </div>
+
+    </div>
+
+    
+    <div class="max-w-7xl mx-auto w-full px-4 sm:px-8 lg:px-12 flex-1 flex items-center justify-center relative">
+        
+        
+        
+        
+        <button 
+            x-show="currentSlide > 1" 
+            @click="currentSlide--"
+            x-cloak
+            x-transition:enter="transition-all ease-out duration-500"
+            x-transition:enter-start="opacity-0 scale-90"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition-all ease-in duration-300"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-90"
+            type="button"
+            title="Slide Sebelumnya"
+            aria-label="Slide Sebelumnya"
+            class="fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-11 sm:h-11 bg-[#2d1a24]/85 hover:bg-[#e0d3ac] text-[#e0d3ac] hover:text-[#1e152a] border border-[#52333d] hover:border-[#e0d3ac] rounded-lg backdrop-blur-md flex items-center justify-center transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 cursor-pointer font-bold text-xl sm:text-2xl select-none"
+        >
+            &lt;
+        </button>
+
+        
+        <button 
+            x-show="currentSlide < totalSlides" 
+            @click="currentSlide++"
+            x-transition:enter="transition-all ease-out duration-500"
+            x-transition:enter-start="opacity-0 scale-90"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition-all ease-in duration-300"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-90"
+            type="button"
+            title="Slide Selanjutnya"
+            aria-label="Slide Selanjutnya"
+            class="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-11 sm:h-11 bg-[#2d1a24]/85 hover:bg-[#e0d3ac] text-[#e0d3ac] hover:text-[#1e152a] border border-[#52333d] hover:border-[#e0d3ac] rounded-lg backdrop-blur-md flex items-center justify-center transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 cursor-pointer font-bold text-xl sm:text-2xl select-none"
+        >
+            &gt;
+        </button>
+
+        
+        <div class="w-full grid grid-cols-1 grid-rows-1 items-start justify-items-center">
+
+            
+            <div 
+                x-show="currentSlide === 1"
+                x-cloak
+                x-transition:enter="transition-opacity ease-out duration-500"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity ease-in duration-200 pointer-events-none"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="col-start-1 row-start-1 w-full grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 justify-items-center"
+            >
+                                    <div class="w-full max-w-[560px] fade-in-item" style="animation-delay: 0ms;">
+                        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+<div class="relative w-full max-w-[620px] bg-[#342023] rounded-[26px] p-4 sm:p-5 text-[#e0d3ac] shadow-2xl border border-[#4a2e33] overflow-hidden select-none font-['Plus_Jakarta_Sans',sans-serif]">
+    
+    
+    <div class="absolute -top-12 -right-12 w-80 h-80 sm:w-96 sm:h-96 pointer-events-none opacity-20 text-[#e0d3ac] overflow-hidden">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <path 
+                    d="M 170 -50 C 150 140, 330 220, 430 270" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 184 -50 C 161 140, 323 220, 436 284" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 198 -50 C 172 140, 316 220, 442 298" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 212 -50 C 183 140, 309 220, 448 312" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 226 -50 C 194 140, 302 220, 454 326" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 240 -50 C 205 140, 295 220, 460 340" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 254 -50 C 216 140, 288 220, 466 354" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 268 -50 C 227 140, 281 220, 472 368" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 282 -50 C 238 140, 274 220, 478 382" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 296 -50 C 249 140, 267 220, 484 396" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 310 -50 C 260 140, 260 220, 490 410" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 324 -50 C 271 140, 253 220, 496 424" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 338 -50 C 282 140, 246 220, 502 438" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 352 -50 C 293 140, 239 220, 508 452" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 366 -50 C 304 140, 232 220, 514 466" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 380 -50 C 315 140, 225 220, 520 480" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                    </svg>
+    </div>
+
+    
+    <div class="relative z-10 flex flex-col sm:flex-row gap-4 sm:gap-5 items-stretch">
+        
+        
+        <div class="shrink-0 flex items-center justify-center">
+            <div class="w-36 h-48 sm:w-44 sm:h-60 rounded-[22px] border-[2.5px] border-[#e0d3ac] overflow-hidden bg-gray-800 shadow-md flex items-center justify-center">
+                                    <img 
+                        src="./images/profiles/01.jpg" 
+                        alt="Muhammad Ariq Yusuf" 
+                        class="w-full h-full object-cover object-center"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x540/4b5563/9ca3af?text=No+Photo';"
+                    />
+                            </div>
+        </div>
+
+        
+        <div class="flex-1 flex flex-col justify-between min-w-0 py-0.5">
+            
+            
+            <div class="flex justify-between items-start gap-3">
+                
+                
+                <div class="flex-1 min-w-0 pr-1">
+                    
+                    <div class="text-4xl sm:text-5xl font-black tracking-tight text-[#e0d3ac] leading-none mb-1.5 sm:mb-2">
+                        01
+                    </div>
+
+                    
+                    <h2 class="text-lg sm:text-[21px] font-extrabold leading-tight tracking-tight text-[#e0d3ac] mb-2 sm:mb-3 break-words">
+                        Muhammad Ariq Yusuf
+                    </h2>
+
+                    
+                    <div class="space-y-0.5 text-xs sm:text-[13px] font-bold text-[#e0d3ac]/90 leading-snug">
+                                                    <div>2 Juni 2007</div>
+                                                                            <div>Bogor</div>
+                                                                            <div>@ariqyysf</div>
+                                            </div>
+                </div>
+
+                
+                <div class="shrink-0 bg-[#3f292d]/85 border border-[#55393e] rounded-[18px] p-2 sm:p-2.5 flex flex-col items-center shadow-lg">
+                    <span class="text-xs sm:text-[13px] font-black uppercase tracking-wider text-[#e0d3ac] mb-1.5 sm:mb-2">
+                        CV ATS
+                    </span>
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl p-1 flex items-center justify-center overflow-hidden shadow-inner">
+                                                    <img 
+                                src="./images/qr/01_qr.png" 
+                                alt="QR Code CV ATS Muhammad Ariq Yusuf" 
+                                class="w-full h-full object-contain"
+                                onerror="this.onerror=null; this.src='https://placehold.co/150x150/4b5563/ffffff?text=QR+Code';"
+                            />
+                                            </div>
+                </div>
+
+            </div>
+
+            
+            <div class="mt-3.5 sm:mt-2.5 w-full bg-[#e0d3ac] rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center shadow-sm">
+                <p class="text-xs sm:text-[13px] font-bold text-[#342023] leading-snug truncate">
+                                        &quot;Pantang pulang sebelum dimarahin mamah.&quot;
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+                    </div>
+                                    <div class="w-full max-w-[560px] fade-in-item" style="animation-delay: 50ms;">
+                        <div class="relative w-full max-w-[620px] bg-[#342023] rounded-[26px] p-4 sm:p-5 text-[#e0d3ac] shadow-2xl border border-[#4a2e33] overflow-hidden select-none font-['Plus_Jakarta_Sans',sans-serif]">
+    
+    
+    <div class="absolute -top-12 -right-12 w-80 h-80 sm:w-96 sm:h-96 pointer-events-none opacity-20 text-[#e0d3ac] overflow-hidden">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <path 
+                    d="M 170 -50 C 150 140, 330 220, 430 270" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 184 -50 C 161 140, 323 220, 436 284" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 198 -50 C 172 140, 316 220, 442 298" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 212 -50 C 183 140, 309 220, 448 312" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 226 -50 C 194 140, 302 220, 454 326" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 240 -50 C 205 140, 295 220, 460 340" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 254 -50 C 216 140, 288 220, 466 354" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 268 -50 C 227 140, 281 220, 472 368" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 282 -50 C 238 140, 274 220, 478 382" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 296 -50 C 249 140, 267 220, 484 396" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 310 -50 C 260 140, 260 220, 490 410" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 324 -50 C 271 140, 253 220, 496 424" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 338 -50 C 282 140, 246 220, 502 438" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 352 -50 C 293 140, 239 220, 508 452" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 366 -50 C 304 140, 232 220, 514 466" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 380 -50 C 315 140, 225 220, 520 480" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                    </svg>
+    </div>
+
+    
+    <div class="relative z-10 flex flex-col sm:flex-row gap-4 sm:gap-5 items-stretch">
+        
+        
+        <div class="shrink-0 flex items-center justify-center">
+            <div class="w-36 h-48 sm:w-44 sm:h-60 rounded-[22px] border-[2.5px] border-[#e0d3ac] overflow-hidden bg-gray-800 shadow-md flex items-center justify-center">
+                                    <img 
+                        src="./images/profiles/02.jpg" 
+                        alt="Abiyyu Daffa&#039; Fadhilah Hamzah" 
+                        class="w-full h-full object-cover object-center"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x540/4b5563/9ca3af?text=No+Photo';"
+                    />
+                            </div>
+        </div>
+
+        
+        <div class="flex-1 flex flex-col justify-between min-w-0 py-0.5">
+            
+            
+            <div class="flex justify-between items-start gap-3">
+                
+                
+                <div class="flex-1 min-w-0 pr-1">
+                    
+                    <div class="text-4xl sm:text-5xl font-black tracking-tight text-[#e0d3ac] leading-none mb-1.5 sm:mb-2">
+                        02
+                    </div>
+
+                    
+                    <h2 class="text-lg sm:text-[21px] font-extrabold leading-tight tracking-tight text-[#e0d3ac] mb-2 sm:mb-3 break-words">
+                        Abiyyu Daffa&#039; Fadhilah Hamzah
+                    </h2>
+
+                    
+                    <div class="space-y-0.5 text-xs sm:text-[13px] font-bold text-[#e0d3ac]/90 leading-snug">
+                                                    <div>9 Februari 2007</div>
+                                                                            <div>Wonosobo</div>
+                                                                            <div>@dppadill</div>
+                                            </div>
+                </div>
+
+                
+                <div class="shrink-0 bg-[#3f292d]/85 border border-[#55393e] rounded-[18px] p-2 sm:p-2.5 flex flex-col items-center shadow-lg">
+                    <span class="text-xs sm:text-[13px] font-black uppercase tracking-wider text-[#e0d3ac] mb-1.5 sm:mb-2">
+                        CV ATS
+                    </span>
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl p-1 flex items-center justify-center overflow-hidden shadow-inner">
+                                                    <img 
+                                src="./images/qr/02_qr.png" 
+                                alt="QR Code CV ATS Abiyyu Daffa&#039; Fadhilah Hamzah" 
+                                class="w-full h-full object-contain"
+                                onerror="this.onerror=null; this.src='https://placehold.co/150x150/4b5563/ffffff?text=QR+Code';"
+                            />
+                                            </div>
+                </div>
+
+            </div>
+
+            
+            <div class="mt-3.5 sm:mt-2.5 w-full bg-[#e0d3ac] rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center shadow-sm">
+                <p class="text-xs sm:text-[13px] font-bold text-[#342023] leading-snug truncate">
+                                        &quot;Mie ayam.&quot;
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+                    </div>
+                                    <div class="w-full max-w-[560px] fade-in-item" style="animation-delay: 100ms;">
+                        <div class="relative w-full max-w-[620px] bg-[#342023] rounded-[26px] p-4 sm:p-5 text-[#e0d3ac] shadow-2xl border border-[#4a2e33] overflow-hidden select-none font-['Plus_Jakarta_Sans',sans-serif]">
+    
+    
+    <div class="absolute -top-12 -right-12 w-80 h-80 sm:w-96 sm:h-96 pointer-events-none opacity-20 text-[#e0d3ac] overflow-hidden">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <path 
+                    d="M 170 -50 C 150 140, 330 220, 430 270" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 184 -50 C 161 140, 323 220, 436 284" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 198 -50 C 172 140, 316 220, 442 298" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 212 -50 C 183 140, 309 220, 448 312" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 226 -50 C 194 140, 302 220, 454 326" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 240 -50 C 205 140, 295 220, 460 340" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 254 -50 C 216 140, 288 220, 466 354" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 268 -50 C 227 140, 281 220, 472 368" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 282 -50 C 238 140, 274 220, 478 382" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 296 -50 C 249 140, 267 220, 484 396" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 310 -50 C 260 140, 260 220, 490 410" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 324 -50 C 271 140, 253 220, 496 424" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 338 -50 C 282 140, 246 220, 502 438" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 352 -50 C 293 140, 239 220, 508 452" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 366 -50 C 304 140, 232 220, 514 466" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 380 -50 C 315 140, 225 220, 520 480" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                    </svg>
+    </div>
+
+    
+    <div class="relative z-10 flex flex-col sm:flex-row gap-4 sm:gap-5 items-stretch">
+        
+        
+        <div class="shrink-0 flex items-center justify-center">
+            <div class="w-36 h-48 sm:w-44 sm:h-60 rounded-[22px] border-[2.5px] border-[#e0d3ac] overflow-hidden bg-gray-800 shadow-md flex items-center justify-center">
+                                    <img 
+                        src="./images/profiles/03.jpg" 
+                        alt="Erlita Dwi Anandhita" 
+                        class="w-full h-full object-cover object-center"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x540/4b5563/9ca3af?text=No+Photo';"
+                    />
+                            </div>
+        </div>
+
+        
+        <div class="flex-1 flex flex-col justify-between min-w-0 py-0.5">
+            
+            
+            <div class="flex justify-between items-start gap-3">
+                
+                
+                <div class="flex-1 min-w-0 pr-1">
+                    
+                    <div class="text-4xl sm:text-5xl font-black tracking-tight text-[#e0d3ac] leading-none mb-1.5 sm:mb-2">
+                        03
+                    </div>
+
+                    
+                    <h2 class="text-lg sm:text-[21px] font-extrabold leading-tight tracking-tight text-[#e0d3ac] mb-2 sm:mb-3 break-words">
+                        Erlita Dwi Anandhita
+                    </h2>
+
+                    
+                    <div class="space-y-0.5 text-xs sm:text-[13px] font-bold text-[#e0d3ac]/90 leading-snug">
+                                                    <div>12 Desember 2006</div>
+                                                                            <div>Bogor</div>
+                                                                            <div>@erlitaanandhita</div>
+                                            </div>
+                </div>
+
+                
+                <div class="shrink-0 bg-[#3f292d]/85 border border-[#55393e] rounded-[18px] p-2 sm:p-2.5 flex flex-col items-center shadow-lg">
+                    <span class="text-xs sm:text-[13px] font-black uppercase tracking-wider text-[#e0d3ac] mb-1.5 sm:mb-2">
+                        CV ATS
+                    </span>
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl p-1 flex items-center justify-center overflow-hidden shadow-inner">
+                                                    <img 
+                                src="./images/qr/03_qr.png" 
+                                alt="QR Code CV ATS Erlita Dwi Anandhita" 
+                                class="w-full h-full object-contain"
+                                onerror="this.onerror=null; this.src='https://placehold.co/150x150/4b5563/ffffff?text=QR+Code';"
+                            />
+                                            </div>
+                </div>
+
+            </div>
+
+            
+            <div class="mt-3.5 sm:mt-2.5 w-full bg-[#e0d3ac] rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center shadow-sm">
+                <p class="text-xs sm:text-[13px] font-bold text-[#342023] leading-snug truncate">
+                                        &quot;Gak suka naspad.&quot;
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+                    </div>
+                                    <div class="w-full max-w-[560px] fade-in-item" style="animation-delay: 150ms;">
+                        <div class="relative w-full max-w-[620px] bg-[#342023] rounded-[26px] p-4 sm:p-5 text-[#e0d3ac] shadow-2xl border border-[#4a2e33] overflow-hidden select-none font-['Plus_Jakarta_Sans',sans-serif]">
+    
+    
+    <div class="absolute -top-12 -right-12 w-80 h-80 sm:w-96 sm:h-96 pointer-events-none opacity-20 text-[#e0d3ac] overflow-hidden">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <path 
+                    d="M 170 -50 C 150 140, 330 220, 430 270" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 184 -50 C 161 140, 323 220, 436 284" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 198 -50 C 172 140, 316 220, 442 298" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 212 -50 C 183 140, 309 220, 448 312" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 226 -50 C 194 140, 302 220, 454 326" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 240 -50 C 205 140, 295 220, 460 340" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 254 -50 C 216 140, 288 220, 466 354" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 268 -50 C 227 140, 281 220, 472 368" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 282 -50 C 238 140, 274 220, 478 382" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 296 -50 C 249 140, 267 220, 484 396" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 310 -50 C 260 140, 260 220, 490 410" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 324 -50 C 271 140, 253 220, 496 424" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 338 -50 C 282 140, 246 220, 502 438" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 352 -50 C 293 140, 239 220, 508 452" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 366 -50 C 304 140, 232 220, 514 466" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 380 -50 C 315 140, 225 220, 520 480" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                    </svg>
+    </div>
+
+    
+    <div class="relative z-10 flex flex-col sm:flex-row gap-4 sm:gap-5 items-stretch">
+        
+        
+        <div class="shrink-0 flex items-center justify-center">
+            <div class="w-36 h-48 sm:w-44 sm:h-60 rounded-[22px] border-[2.5px] border-[#e0d3ac] overflow-hidden bg-gray-800 shadow-md flex items-center justify-center">
+                                    <img 
+                        src="./images/profiles/04.jpg" 
+                        alt="Rista Ayudia" 
+                        class="w-full h-full object-cover object-center"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x540/4b5563/9ca3af?text=No+Photo';"
+                    />
+                            </div>
+        </div>
+
+        
+        <div class="flex-1 flex flex-col justify-between min-w-0 py-0.5">
+            
+            
+            <div class="flex justify-between items-start gap-3">
+                
+                
+                <div class="flex-1 min-w-0 pr-1">
+                    
+                    <div class="text-4xl sm:text-5xl font-black tracking-tight text-[#e0d3ac] leading-none mb-1.5 sm:mb-2">
+                        04
+                    </div>
+
+                    
+                    <h2 class="text-lg sm:text-[21px] font-extrabold leading-tight tracking-tight text-[#e0d3ac] mb-2 sm:mb-3 break-words">
+                        Rista Ayudia
+                    </h2>
+
+                    
+                    <div class="space-y-0.5 text-xs sm:text-[13px] font-bold text-[#e0d3ac]/90 leading-snug">
+                                                    <div>10 April 2007</div>
+                                                                            <div>Sukabumi</div>
+                                                                            <div>@rstayudiaa</div>
+                                            </div>
+                </div>
+
+                
+                <div class="shrink-0 bg-[#3f292d]/85 border border-[#55393e] rounded-[18px] p-2 sm:p-2.5 flex flex-col items-center shadow-lg">
+                    <span class="text-xs sm:text-[13px] font-black uppercase tracking-wider text-[#e0d3ac] mb-1.5 sm:mb-2">
+                        CV ATS
+                    </span>
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl p-1 flex items-center justify-center overflow-hidden shadow-inner">
+                                                    <img 
+                                src="./images/qr/04_qr.png" 
+                                alt="QR Code CV ATS Rista Ayudia" 
+                                class="w-full h-full object-contain"
+                                onerror="this.onerror=null; this.src='https://placehold.co/150x150/4b5563/ffffff?text=QR+Code';"
+                            />
+                                            </div>
+                </div>
+
+            </div>
+
+            
+            <div class="mt-3.5 sm:mt-2.5 w-full bg-[#e0d3ac] rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center shadow-sm">
+                <p class="text-xs sm:text-[13px] font-bold text-[#342023] leading-snug truncate">
+                                        &quot;Apapun masalahnya, nge-bakso solusinya.&quot;
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+                    </div>
+                            </div>
+
+            
+            <div 
+                x-show="currentSlide === 2"
+                x-cloak
+                x-transition:enter="transition-opacity ease-out duration-500"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity ease-in duration-200 pointer-events-none"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="col-start-1 row-start-1 w-full grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 justify-items-center"
+            >
+                                    <div class="w-full max-w-[560px] fade-in-item" style="animation-delay: 0ms;">
+                        <div class="relative w-full max-w-[620px] bg-[#342023] rounded-[26px] p-4 sm:p-5 text-[#e0d3ac] shadow-2xl border border-[#4a2e33] overflow-hidden select-none font-['Plus_Jakarta_Sans',sans-serif]">
+    
+    
+    <div class="absolute -top-12 -right-12 w-80 h-80 sm:w-96 sm:h-96 pointer-events-none opacity-20 text-[#e0d3ac] overflow-hidden">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <path 
+                    d="M 170 -50 C 150 140, 330 220, 430 270" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 184 -50 C 161 140, 323 220, 436 284" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 198 -50 C 172 140, 316 220, 442 298" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 212 -50 C 183 140, 309 220, 448 312" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 226 -50 C 194 140, 302 220, 454 326" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 240 -50 C 205 140, 295 220, 460 340" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 254 -50 C 216 140, 288 220, 466 354" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 268 -50 C 227 140, 281 220, 472 368" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 282 -50 C 238 140, 274 220, 478 382" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 296 -50 C 249 140, 267 220, 484 396" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 310 -50 C 260 140, 260 220, 490 410" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 324 -50 C 271 140, 253 220, 496 424" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 338 -50 C 282 140, 246 220, 502 438" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 352 -50 C 293 140, 239 220, 508 452" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 366 -50 C 304 140, 232 220, 514 466" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 380 -50 C 315 140, 225 220, 520 480" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                    </svg>
+    </div>
+
+    
+    <div class="relative z-10 flex flex-col sm:flex-row gap-4 sm:gap-5 items-stretch">
+        
+        
+        <div class="shrink-0 flex items-center justify-center">
+            <div class="w-36 h-48 sm:w-44 sm:h-60 rounded-[22px] border-[2.5px] border-[#e0d3ac] overflow-hidden bg-gray-800 shadow-md flex items-center justify-center">
+                                    <img 
+                        src="./images/profiles/05.jpg" 
+                        alt="Muhammad Irham Firdana" 
+                        class="w-full h-full object-cover object-center"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x540/4b5563/9ca3af?text=No+Photo';"
+                    />
+                            </div>
+        </div>
+
+        
+        <div class="flex-1 flex flex-col justify-between min-w-0 py-0.5">
+            
+            
+            <div class="flex justify-between items-start gap-3">
+                
+                
+                <div class="flex-1 min-w-0 pr-1">
+                    
+                    <div class="text-4xl sm:text-5xl font-black tracking-tight text-[#e0d3ac] leading-none mb-1.5 sm:mb-2">
+                        05
+                    </div>
+
+                    
+                    <h2 class="text-lg sm:text-[21px] font-extrabold leading-tight tracking-tight text-[#e0d3ac] mb-2 sm:mb-3 break-words">
+                        Muhammad Irham Firdana
+                    </h2>
+
+                    
+                    <div class="space-y-0.5 text-xs sm:text-[13px] font-bold text-[#e0d3ac]/90 leading-snug">
+                                                    <div>8 Desember 2006</div>
+                                                                            <div>Jakarta</div>
+                                                                            <div>@am_irham</div>
+                                            </div>
+                </div>
+
+                
+                <div class="shrink-0 bg-[#3f292d]/85 border border-[#55393e] rounded-[18px] p-2 sm:p-2.5 flex flex-col items-center shadow-lg">
+                    <span class="text-xs sm:text-[13px] font-black uppercase tracking-wider text-[#e0d3ac] mb-1.5 sm:mb-2">
+                        CV ATS
+                    </span>
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl p-1 flex items-center justify-center overflow-hidden shadow-inner">
+                                                    <img 
+                                src="./images/qr/05_qr.png" 
+                                alt="QR Code CV ATS Muhammad Irham Firdana" 
+                                class="w-full h-full object-contain"
+                                onerror="this.onerror=null; this.src='https://placehold.co/150x150/4b5563/ffffff?text=QR+Code';"
+                            />
+                                            </div>
+                </div>
+
+            </div>
+
+            
+            <div class="mt-3.5 sm:mt-2.5 w-full bg-[#e0d3ac] rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center shadow-sm">
+                <p class="text-xs sm:text-[13px] font-bold text-[#342023] leading-snug truncate">
+                                        &quot;Butuh job&quot;
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+                    </div>
+                                    <div class="w-full max-w-[560px] fade-in-item" style="animation-delay: 50ms;">
+                        <div class="relative w-full max-w-[620px] bg-[#342023] rounded-[26px] p-4 sm:p-5 text-[#e0d3ac] shadow-2xl border border-[#4a2e33] overflow-hidden select-none font-['Plus_Jakarta_Sans',sans-serif]">
+    
+    
+    <div class="absolute -top-12 -right-12 w-80 h-80 sm:w-96 sm:h-96 pointer-events-none opacity-20 text-[#e0d3ac] overflow-hidden">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <path 
+                    d="M 170 -50 C 150 140, 330 220, 430 270" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 184 -50 C 161 140, 323 220, 436 284" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 198 -50 C 172 140, 316 220, 442 298" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 212 -50 C 183 140, 309 220, 448 312" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 226 -50 C 194 140, 302 220, 454 326" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 240 -50 C 205 140, 295 220, 460 340" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 254 -50 C 216 140, 288 220, 466 354" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 268 -50 C 227 140, 281 220, 472 368" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 282 -50 C 238 140, 274 220, 478 382" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 296 -50 C 249 140, 267 220, 484 396" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 310 -50 C 260 140, 260 220, 490 410" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 324 -50 C 271 140, 253 220, 496 424" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 338 -50 C 282 140, 246 220, 502 438" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 352 -50 C 293 140, 239 220, 508 452" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 366 -50 C 304 140, 232 220, 514 466" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 380 -50 C 315 140, 225 220, 520 480" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                    </svg>
+    </div>
+
+    
+    <div class="relative z-10 flex flex-col sm:flex-row gap-4 sm:gap-5 items-stretch">
+        
+        
+        <div class="shrink-0 flex items-center justify-center">
+            <div class="w-36 h-48 sm:w-44 sm:h-60 rounded-[22px] border-[2.5px] border-[#e0d3ac] overflow-hidden bg-gray-800 shadow-md flex items-center justify-center">
+                                    <img 
+                        src="./images/profiles/06.jpg" 
+                        alt="Arief Adhi Wicaksono" 
+                        class="w-full h-full object-cover object-center"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x540/4b5563/9ca3af?text=No+Photo';"
+                    />
+                            </div>
+        </div>
+
+        
+        <div class="flex-1 flex flex-col justify-between min-w-0 py-0.5">
+            
+            
+            <div class="flex justify-between items-start gap-3">
+                
+                
+                <div class="flex-1 min-w-0 pr-1">
+                    
+                    <div class="text-4xl sm:text-5xl font-black tracking-tight text-[#e0d3ac] leading-none mb-1.5 sm:mb-2">
+                        06
+                    </div>
+
+                    
+                    <h2 class="text-lg sm:text-[21px] font-extrabold leading-tight tracking-tight text-[#e0d3ac] mb-2 sm:mb-3 break-words">
+                        Arief Adhi Wicaksono
+                    </h2>
+
+                    
+                    <div class="space-y-0.5 text-xs sm:text-[13px] font-bold text-[#e0d3ac]/90 leading-snug">
+                                                    <div>9 Oktober 2007</div>
+                                                                            <div>Bogor</div>
+                                                                            <div>@riparief_</div>
+                                            </div>
+                </div>
+
+                
+                <div class="shrink-0 bg-[#3f292d]/85 border border-[#55393e] rounded-[18px] p-2 sm:p-2.5 flex flex-col items-center shadow-lg">
+                    <span class="text-xs sm:text-[13px] font-black uppercase tracking-wider text-[#e0d3ac] mb-1.5 sm:mb-2">
+                        CV ATS
+                    </span>
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl p-1 flex items-center justify-center overflow-hidden shadow-inner">
+                                                    <img 
+                                src="./images/qr/06_qr.png" 
+                                alt="QR Code CV ATS Arief Adhi Wicaksono" 
+                                class="w-full h-full object-contain"
+                                onerror="this.onerror=null; this.src='https://placehold.co/150x150/4b5563/ffffff?text=QR+Code';"
+                            />
+                                            </div>
+                </div>
+
+            </div>
+
+            
+            <div class="mt-3.5 sm:mt-2.5 w-full bg-[#e0d3ac] rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center shadow-sm">
+                <p class="text-xs sm:text-[13px] font-bold text-[#342023] leading-snug truncate">
+                                        &quot;Tiada hari tanpa Yupi.&quot;
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+                    </div>
+                                    <div class="w-full max-w-[560px] fade-in-item" style="animation-delay: 100ms;">
+                        <div class="relative w-full max-w-[620px] bg-[#342023] rounded-[26px] p-4 sm:p-5 text-[#e0d3ac] shadow-2xl border border-[#4a2e33] overflow-hidden select-none font-['Plus_Jakarta_Sans',sans-serif]">
+    
+    
+    <div class="absolute -top-12 -right-12 w-80 h-80 sm:w-96 sm:h-96 pointer-events-none opacity-20 text-[#e0d3ac] overflow-hidden">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <path 
+                    d="M 170 -50 C 150 140, 330 220, 430 270" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 184 -50 C 161 140, 323 220, 436 284" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 198 -50 C 172 140, 316 220, 442 298" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 212 -50 C 183 140, 309 220, 448 312" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 226 -50 C 194 140, 302 220, 454 326" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 240 -50 C 205 140, 295 220, 460 340" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 254 -50 C 216 140, 288 220, 466 354" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 268 -50 C 227 140, 281 220, 472 368" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 282 -50 C 238 140, 274 220, 478 382" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 296 -50 C 249 140, 267 220, 484 396" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 310 -50 C 260 140, 260 220, 490 410" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 324 -50 C 271 140, 253 220, 496 424" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 338 -50 C 282 140, 246 220, 502 438" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 352 -50 C 293 140, 239 220, 508 452" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 366 -50 C 304 140, 232 220, 514 466" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 380 -50 C 315 140, 225 220, 520 480" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                    </svg>
+    </div>
+
+    
+    <div class="relative z-10 flex flex-col sm:flex-row gap-4 sm:gap-5 items-stretch">
+        
+        
+        <div class="shrink-0 flex items-center justify-center">
+            <div class="w-36 h-48 sm:w-44 sm:h-60 rounded-[22px] border-[2.5px] border-[#e0d3ac] overflow-hidden bg-gray-800 shadow-md flex items-center justify-center">
+                                    <img 
+                        src="./images/profiles/07.jpg" 
+                        alt="Syakila Zahraini Cahyadi" 
+                        class="w-full h-full object-cover object-center"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x540/4b5563/9ca3af?text=No+Photo';"
+                    />
+                            </div>
+        </div>
+
+        
+        <div class="flex-1 flex flex-col justify-between min-w-0 py-0.5">
+            
+            
+            <div class="flex justify-between items-start gap-3">
+                
+                
+                <div class="flex-1 min-w-0 pr-1">
+                    
+                    <div class="text-4xl sm:text-5xl font-black tracking-tight text-[#e0d3ac] leading-none mb-1.5 sm:mb-2">
+                        07
+                    </div>
+
+                    
+                    <h2 class="text-lg sm:text-[21px] font-extrabold leading-tight tracking-tight text-[#e0d3ac] mb-2 sm:mb-3 break-words">
+                        Syakila Zahraini Cahyadi
+                    </h2>
+
+                    
+                    <div class="space-y-0.5 text-xs sm:text-[13px] font-bold text-[#e0d3ac]/90 leading-snug">
+                                                    <div>16 Juli 2007</div>
+                                                                            <div>Bogor</div>
+                                                                            <div>@syakilazhr.ini</div>
+                                            </div>
+                </div>
+
+                
+                <div class="shrink-0 bg-[#3f292d]/85 border border-[#55393e] rounded-[18px] p-2 sm:p-2.5 flex flex-col items-center shadow-lg">
+                    <span class="text-xs sm:text-[13px] font-black uppercase tracking-wider text-[#e0d3ac] mb-1.5 sm:mb-2">
+                        CV ATS
+                    </span>
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl p-1 flex items-center justify-center overflow-hidden shadow-inner">
+                                                    <img 
+                                src="./images/qr/07_qr.png" 
+                                alt="QR Code CV ATS Syakila Zahraini Cahyadi" 
+                                class="w-full h-full object-contain"
+                                onerror="this.onerror=null; this.src='https://placehold.co/150x150/4b5563/ffffff?text=QR+Code';"
+                            />
+                                            </div>
+                </div>
+
+            </div>
+
+            
+            <div class="mt-3.5 sm:mt-2.5 w-full bg-[#e0d3ac] rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center shadow-sm">
+                <p class="text-xs sm:text-[13px] font-bold text-[#342023] leading-snug truncate">
+                                        &quot;Suka bingung kalau ditanya fun fact.&quot;
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+                    </div>
+                                    <div class="w-full max-w-[560px] fade-in-item" style="animation-delay: 150ms;">
+                        <div class="relative w-full max-w-[620px] bg-[#342023] rounded-[26px] p-4 sm:p-5 text-[#e0d3ac] shadow-2xl border border-[#4a2e33] overflow-hidden select-none font-['Plus_Jakarta_Sans',sans-serif]">
+    
+    
+    <div class="absolute -top-12 -right-12 w-80 h-80 sm:w-96 sm:h-96 pointer-events-none opacity-20 text-[#e0d3ac] overflow-hidden">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <path 
+                    d="M 170 -50 C 150 140, 330 220, 430 270" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 184 -50 C 161 140, 323 220, 436 284" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 198 -50 C 172 140, 316 220, 442 298" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 212 -50 C 183 140, 309 220, 448 312" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 226 -50 C 194 140, 302 220, 454 326" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 240 -50 C 205 140, 295 220, 460 340" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 254 -50 C 216 140, 288 220, 466 354" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 268 -50 C 227 140, 281 220, 472 368" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 282 -50 C 238 140, 274 220, 478 382" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 296 -50 C 249 140, 267 220, 484 396" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 310 -50 C 260 140, 260 220, 490 410" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 324 -50 C 271 140, 253 220, 496 424" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 338 -50 C 282 140, 246 220, 502 438" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 352 -50 C 293 140, 239 220, 508 452" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 366 -50 C 304 140, 232 220, 514 466" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 380 -50 C 315 140, 225 220, 520 480" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                    </svg>
+    </div>
+
+    
+    <div class="relative z-10 flex flex-col sm:flex-row gap-4 sm:gap-5 items-stretch">
+        
+        
+        <div class="shrink-0 flex items-center justify-center">
+            <div class="w-36 h-48 sm:w-44 sm:h-60 rounded-[22px] border-[2.5px] border-[#e0d3ac] overflow-hidden bg-gray-800 shadow-md flex items-center justify-center">
+                                    <img 
+                        src="./images/profiles/08.jpg" 
+                        alt="Dewi Chondro Kusumo" 
+                        class="w-full h-full object-cover object-center"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x540/4b5563/9ca3af?text=No+Photo';"
+                    />
+                            </div>
+        </div>
+
+        
+        <div class="flex-1 flex flex-col justify-between min-w-0 py-0.5">
+            
+            
+            <div class="flex justify-between items-start gap-3">
+                
+                
+                <div class="flex-1 min-w-0 pr-1">
+                    
+                    <div class="text-4xl sm:text-5xl font-black tracking-tight text-[#e0d3ac] leading-none mb-1.5 sm:mb-2">
+                        08
+                    </div>
+
+                    
+                    <h2 class="text-lg sm:text-[21px] font-extrabold leading-tight tracking-tight text-[#e0d3ac] mb-2 sm:mb-3 break-words">
+                        Dewi Chondro Kusumo
+                    </h2>
+
+                    
+                    <div class="space-y-0.5 text-xs sm:text-[13px] font-bold text-[#e0d3ac]/90 leading-snug">
+                                                    <div>28 Maret 2007</div>
+                                                                            <div>Kudus</div>
+                                                                            <div>@d_wichndr</div>
+                                            </div>
+                </div>
+
+                
+                <div class="shrink-0 bg-[#3f292d]/85 border border-[#55393e] rounded-[18px] p-2 sm:p-2.5 flex flex-col items-center shadow-lg">
+                    <span class="text-xs sm:text-[13px] font-black uppercase tracking-wider text-[#e0d3ac] mb-1.5 sm:mb-2">
+                        CV ATS
+                    </span>
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl p-1 flex items-center justify-center overflow-hidden shadow-inner">
+                                                    <img 
+                                src="./images/qr/08_qr.png" 
+                                alt="QR Code CV ATS Dewi Chondro Kusumo" 
+                                class="w-full h-full object-contain"
+                                onerror="this.onerror=null; this.src='https://placehold.co/150x150/4b5563/ffffff?text=QR+Code';"
+                            />
+                                            </div>
+                </div>
+
+            </div>
+
+            
+            <div class="mt-3.5 sm:mt-2.5 w-full bg-[#e0d3ac] rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center shadow-sm">
+                <p class="text-xs sm:text-[13px] font-bold text-[#342023] leading-snug truncate">
+                                        &quot;Ga suka durian.&quot;
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+                    </div>
+                            </div>
+
+            
+            <div 
+                x-show="currentSlide === 3"
+                x-cloak
+                x-transition:enter="transition-opacity ease-out duration-500"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity ease-in duration-200 pointer-events-none"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="col-start-1 row-start-1 w-full grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 justify-items-center"
+            >
+                
+                                    <div class="w-full max-w-[560px] flex justify-center fade-in-item" style="animation-delay: 0ms;">
+                        <div class="relative w-full max-w-[620px] bg-[#342023] rounded-[26px] p-4 sm:p-5 text-[#e0d3ac] shadow-2xl border border-[#4a2e33] overflow-hidden select-none font-['Plus_Jakarta_Sans',sans-serif]">
+    
+    
+    <div class="absolute -top-12 -right-12 w-80 h-80 sm:w-96 sm:h-96 pointer-events-none opacity-20 text-[#e0d3ac] overflow-hidden">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <path 
+                    d="M 170 -50 C 150 140, 330 220, 430 270" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 184 -50 C 161 140, 323 220, 436 284" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 198 -50 C 172 140, 316 220, 442 298" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 212 -50 C 183 140, 309 220, 448 312" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 226 -50 C 194 140, 302 220, 454 326" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 240 -50 C 205 140, 295 220, 460 340" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 254 -50 C 216 140, 288 220, 466 354" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 268 -50 C 227 140, 281 220, 472 368" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 282 -50 C 238 140, 274 220, 478 382" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 296 -50 C 249 140, 267 220, 484 396" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 310 -50 C 260 140, 260 220, 490 410" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 324 -50 C 271 140, 253 220, 496 424" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 338 -50 C 282 140, 246 220, 502 438" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 352 -50 C 293 140, 239 220, 508 452" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 366 -50 C 304 140, 232 220, 514 466" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 380 -50 C 315 140, 225 220, 520 480" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                    </svg>
+    </div>
+
+    
+    <div class="relative z-10 flex flex-col sm:flex-row gap-4 sm:gap-5 items-stretch">
+        
+        
+        <div class="shrink-0 flex items-center justify-center">
+            <div class="w-36 h-48 sm:w-44 sm:h-60 rounded-[22px] border-[2.5px] border-[#e0d3ac] overflow-hidden bg-gray-800 shadow-md flex items-center justify-center">
+                                    <img 
+                        src="./images/profiles/09.jpg" 
+                        alt="Fariz Bintang Fadhilah Nunes" 
+                        class="w-full h-full object-cover object-center"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x540/4b5563/9ca3af?text=No+Photo';"
+                    />
+                            </div>
+        </div>
+
+        
+        <div class="flex-1 flex flex-col justify-between min-w-0 py-0.5">
+            
+            
+            <div class="flex justify-between items-start gap-3">
+                
+                
+                <div class="flex-1 min-w-0 pr-1">
+                    
+                    <div class="text-4xl sm:text-5xl font-black tracking-tight text-[#e0d3ac] leading-none mb-1.5 sm:mb-2">
+                        09
+                    </div>
+
+                    
+                    <h2 class="text-lg sm:text-[21px] font-extrabold leading-tight tracking-tight text-[#e0d3ac] mb-2 sm:mb-3 break-words">
+                        Fariz Bintang Fadhilah Nunes
+                    </h2>
+
+                    
+                    <div class="space-y-0.5 text-xs sm:text-[13px] font-bold text-[#e0d3ac]/90 leading-snug">
+                                                    <div>18 Maret 2007</div>
+                                                                            <div>Kalimantan Utara</div>
+                                                                            <div>@fariz_nunez</div>
+                                            </div>
+                </div>
+
+                
+                <div class="shrink-0 bg-[#3f292d]/85 border border-[#55393e] rounded-[18px] p-2 sm:p-2.5 flex flex-col items-center shadow-lg">
+                    <span class="text-xs sm:text-[13px] font-black uppercase tracking-wider text-[#e0d3ac] mb-1.5 sm:mb-2">
+                        CV ATS
+                    </span>
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl p-1 flex items-center justify-center overflow-hidden shadow-inner">
+                                                    <img 
+                                src="./images/qr/09_qr.png" 
+                                alt="QR Code CV ATS Fariz Bintang Fadhilah Nunes" 
+                                class="w-full h-full object-contain"
+                                onerror="this.onerror=null; this.src='https://placehold.co/150x150/4b5563/ffffff?text=QR+Code';"
+                            />
+                                            </div>
+                </div>
+
+            </div>
+
+            
+            <div class="mt-3.5 sm:mt-2.5 w-full bg-[#e0d3ac] rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center shadow-sm">
+                <p class="text-xs sm:text-[13px] font-bold text-[#342023] leading-snug truncate">
+                                        &quot;Kebanyakan funfact&quot;
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+                    </div>
+                
+                
+                                    <div class="w-full max-w-[560px] flex justify-center fade-in-item" style="animation-delay: 50ms;">
+                        <div class="relative w-full max-w-[620px] bg-[#342023] rounded-[26px] p-4 sm:p-5 text-[#e0d3ac] shadow-2xl border border-[#4a2e33] overflow-hidden select-none font-['Plus_Jakarta_Sans',sans-serif]">
+    
+    
+    <div class="absolute -top-12 -right-12 w-80 h-80 sm:w-96 sm:h-96 pointer-events-none opacity-20 text-[#e0d3ac] overflow-hidden">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <path 
+                    d="M 170 -50 C 150 140, 330 220, 430 270" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 184 -50 C 161 140, 323 220, 436 284" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 198 -50 C 172 140, 316 220, 442 298" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 212 -50 C 183 140, 309 220, 448 312" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 226 -50 C 194 140, 302 220, 454 326" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 240 -50 C 205 140, 295 220, 460 340" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 254 -50 C 216 140, 288 220, 466 354" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 268 -50 C 227 140, 281 220, 472 368" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 282 -50 C 238 140, 274 220, 478 382" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 296 -50 C 249 140, 267 220, 484 396" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 310 -50 C 260 140, 260 220, 490 410" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 324 -50 C 271 140, 253 220, 496 424" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 338 -50 C 282 140, 246 220, 502 438" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 352 -50 C 293 140, 239 220, 508 452" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 366 -50 C 304 140, 232 220, 514 466" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 380 -50 C 315 140, 225 220, 520 480" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                    </svg>
+    </div>
+
+    
+    <div class="relative z-10 flex flex-col sm:flex-row gap-4 sm:gap-5 items-stretch">
+        
+        
+        <div class="shrink-0 flex items-center justify-center">
+            <div class="w-36 h-48 sm:w-44 sm:h-60 rounded-[22px] border-[2.5px] border-[#e0d3ac] overflow-hidden bg-gray-800 shadow-md flex items-center justify-center">
+                                    <img 
+                        src="./images/profiles/10.jpg" 
+                        alt="Dinendra Defastya El Farid" 
+                        class="w-full h-full object-cover object-center"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x540/4b5563/9ca3af?text=No+Photo';"
+                    />
+                            </div>
+        </div>
+
+        
+        <div class="flex-1 flex flex-col justify-between min-w-0 py-0.5">
+            
+            
+            <div class="flex justify-between items-start gap-3">
+                
+                
+                <div class="flex-1 min-w-0 pr-1">
+                    
+                    <div class="text-4xl sm:text-5xl font-black tracking-tight text-[#e0d3ac] leading-none mb-1.5 sm:mb-2">
+                        10
+                    </div>
+
+                    
+                    <h2 class="text-lg sm:text-[21px] font-extrabold leading-tight tracking-tight text-[#e0d3ac] mb-2 sm:mb-3 break-words">
+                        Dinendra Defastya El Farid
+                    </h2>
+
+                    
+                    <div class="space-y-0.5 text-xs sm:text-[13px] font-bold text-[#e0d3ac]/90 leading-snug">
+                                                    <div>10 Juli 2007</div>
+                                                                            <div>Tangerang Selatan</div>
+                                                                            <div>@dndra_el_farid</div>
+                                            </div>
+                </div>
+
+                
+                <div class="shrink-0 bg-[#3f292d]/85 border border-[#55393e] rounded-[18px] p-2 sm:p-2.5 flex flex-col items-center shadow-lg">
+                    <span class="text-xs sm:text-[13px] font-black uppercase tracking-wider text-[#e0d3ac] mb-1.5 sm:mb-2">
+                        CV ATS
+                    </span>
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl p-1 flex items-center justify-center overflow-hidden shadow-inner">
+                                                    <img 
+                                src="./images/qr/10_qr.png" 
+                                alt="QR Code CV ATS Dinendra Defastya El Farid" 
+                                class="w-full h-full object-contain"
+                                onerror="this.onerror=null; this.src='https://placehold.co/150x150/4b5563/ffffff?text=QR+Code';"
+                            />
+                                            </div>
+                </div>
+
+            </div>
+
+            
+            <div class="mt-3.5 sm:mt-2.5 w-full bg-[#e0d3ac] rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center shadow-sm">
+                <p class="text-xs sm:text-[13px] font-bold text-[#342023] leading-snug truncate">
+                                        &quot;Gampang ketiduran.&quot;
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+                    </div>
+                
+                
+                                    <div class="col-span-1 md:col-span-2 w-full max-w-[560px] flex justify-center pt-2 fade-in-item" style="animation-delay: 100ms;">
+                        <div class="relative w-full max-w-[620px] bg-[#342023] rounded-[26px] p-4 sm:p-5 text-[#e0d3ac] shadow-2xl border border-[#4a2e33] overflow-hidden select-none font-['Plus_Jakarta_Sans',sans-serif]">
+    
+    
+    <div class="absolute -top-12 -right-12 w-80 h-80 sm:w-96 sm:h-96 pointer-events-none opacity-20 text-[#e0d3ac] overflow-hidden">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <path 
+                    d="M 170 -50 C 150 140, 330 220, 430 270" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 184 -50 C 161 140, 323 220, 436 284" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 198 -50 C 172 140, 316 220, 442 298" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 212 -50 C 183 140, 309 220, 448 312" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 226 -50 C 194 140, 302 220, 454 326" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 240 -50 C 205 140, 295 220, 460 340" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 254 -50 C 216 140, 288 220, 466 354" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 268 -50 C 227 140, 281 220, 472 368" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 282 -50 C 238 140, 274 220, 478 382" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 296 -50 C 249 140, 267 220, 484 396" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 310 -50 C 260 140, 260 220, 490 410" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 324 -50 C 271 140, 253 220, 496 424" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 338 -50 C 282 140, 246 220, 502 438" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 352 -50 C 293 140, 239 220, 508 452" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 366 -50 C 304 140, 232 220, 514 466" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                            <path 
+                    d="M 380 -50 C 315 140, 225 220, 520 480" 
+                    stroke="currentColor" 
+                    stroke-width="1.2" 
+                    stroke-linecap="round"
+                />
+                    </svg>
+    </div>
+
+    
+    <div class="relative z-10 flex flex-col sm:flex-row gap-4 sm:gap-5 items-stretch">
+        
+        
+        <div class="shrink-0 flex items-center justify-center">
+            <div class="w-36 h-48 sm:w-44 sm:h-60 rounded-[22px] border-[2.5px] border-[#e0d3ac] overflow-hidden bg-gray-800 shadow-md flex items-center justify-center">
+                                    <img 
+                        src="./images/profiles/11.jpg" 
+                        alt="Syifa Az Zahra" 
+                        class="w-full h-full object-cover object-center"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x540/4b5563/9ca3af?text=No+Photo';"
+                    />
+                            </div>
+        </div>
+
+        
+        <div class="flex-1 flex flex-col justify-between min-w-0 py-0.5">
+            
+            
+            <div class="flex justify-between items-start gap-3">
+                
+                
+                <div class="flex-1 min-w-0 pr-1">
+                    
+                    <div class="text-4xl sm:text-5xl font-black tracking-tight text-[#e0d3ac] leading-none mb-1.5 sm:mb-2">
+                        11
+                    </div>
+
+                    
+                    <h2 class="text-lg sm:text-[21px] font-extrabold leading-tight tracking-tight text-[#e0d3ac] mb-2 sm:mb-3 break-words">
+                        Syifa Az Zahra
+                    </h2>
+
+                    
+                    <div class="space-y-0.5 text-xs sm:text-[13px] font-bold text-[#e0d3ac]/90 leading-snug">
+                                                    <div>26 Februari 2007</div>
+                                                                            <div>Indramayu</div>
+                                                                            <div>@szyaihfraa</div>
+                                            </div>
+                </div>
+
+                
+                <div class="shrink-0 bg-[#3f292d]/85 border border-[#55393e] rounded-[18px] p-2 sm:p-2.5 flex flex-col items-center shadow-lg">
+                    <span class="text-xs sm:text-[13px] font-black uppercase tracking-wider text-[#e0d3ac] mb-1.5 sm:mb-2">
+                        CV ATS
+                    </span>
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl p-1 flex items-center justify-center overflow-hidden shadow-inner">
+                                                    <img 
+                                src="./images/qr/11_qr.png" 
+                                alt="QR Code CV ATS Syifa Az Zahra" 
+                                class="w-full h-full object-contain"
+                                onerror="this.onerror=null; this.src='https://placehold.co/150x150/4b5563/ffffff?text=QR+Code';"
+                            />
+                                            </div>
+                </div>
+
+            </div>
+
+            
+            <div class="mt-3.5 sm:mt-2.5 w-full bg-[#e0d3ac] rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center shadow-sm">
+                <p class="text-xs sm:text-[13px] font-bold text-[#342023] leading-snug truncate">
+                                        &quot;Suka liat langit malam buat ngecek bintang.&quot;
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+                    </div>
+                            </div>
+
+        </div>
+
+    </div>
+
+</div>
+    </main>
+
+    
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</body>
+</html>
+
+
